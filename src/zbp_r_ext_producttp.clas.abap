@@ -1,0 +1,6 @@
+CLASS zbp_r_ext_producttp DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF yr_yr_producttp.
+ENDCLASS.
+
+CLASS zbp_r_ext_producttp IMPLEMENTATION.
+ENDCLASS.
+

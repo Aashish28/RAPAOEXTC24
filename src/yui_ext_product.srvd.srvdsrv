@@ -1,0 +1,3 @@
+extend service YUI_YR_PRODUCT with {
+  expose YC_PRODBOM as zzProdBom;
+}

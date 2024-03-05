@@ -1,0 +1,46 @@
+extension using interface yi_yr_producttp
+implementation in class zbp_r_ext_producttp unique;
+
+extend behavior for YR_PRODUCT{
+
+  validation zz_checkproductname on save { create; update; }
+
+  action zzaddReview parameter YZAE_PRODREVIEW result [1] $self;
+
+  association ZZProdBomYZA { create;}
+
+}
+
+define behavior for YR_PRODBOM alias zzyztprodbom using YI_PRODBOM
+persistent table YZTPRODBOM
+etag master LocalLastChangedAt
+lock dependent
+authorization dependent
+late numbering
+{
+  field (readonly) Productid, Bomid,
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedBy,
+   LastChangedAt;
+
+  update;
+  delete;
+
+  association _prod { }
+
+  mapping for yztprodbom
+  {
+   Productid = productid;
+   Bomid = bomid;
+   Bomname = bomname;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+  }
+}

@@ -1,0 +1,15 @@
+extension for projection;
+
+extend behavior for YR_PRODUCT
+{
+    use action zzaddReview;
+    use association ZZProdBomYZA { create; }
+}
+
+define behavior for YC_PRODBOM alias ZZProdBomYZA{
+
+  use update;
+  use delete;
+
+  use association _prod {  }
+}
